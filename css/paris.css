@@ -1,0 +1,446 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', serif; 
+}
+
+/*Cabeza de la pagina*/
+header{
+    background: #000000;
+    display: flex;
+    justify-content:space-between;
+    padding: 2rem; 
+}
+.imagen{
+    max-width: 5rem;
+    align-items: center;
+}
+/*posicion del texto*/
+.nav-lista{
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+}
+
+/*Caracteristicas del texto de la cabeza*/
+.nav-lista li a{
+    text-decoration: none;
+    color: transparent;
+    position: relative;
+    font-size: 25px;
+    line-height: 1em;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1px #a5a5a5c9;
+}
+
+.nav-lista li a::before {
+    content: attr(data-text);
+    position: absolute;
+    color: var(--clr);
+    width: 0;
+    overflow: hidden;
+    transition: 1s;
+    border-right: 3px solid var(--clr);
+    -webkit-text-stroke: 1px var(--clr);
+}
+
+.nav-lista li a:hover::before {
+    width: 100%;
+    filter: drop-shadow(0 0 25px var(--clr));
+}
+
+.ContenedorMexico{
+    background-color:#000000ee;
+    width: 100%;
+  max-width: 12000px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+.padreMI{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3em;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+}
+
+.padreMIM{
+    background-image: url("../recursos/img/gustu.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    grid-template-columns: 5fr, 7fr;
+    gap: 1em;
+    width: 1300px;
+    height: 380px;
+    font-family: "figtree", sans-serif;
+    transition: all 400ms;
+    display:flex;
+}
+
+
+
+.Precaucion{
+    height: 5px;
+    max-width: 700px;
+    padding: 20px;
+    position: relative;
+    margin-right: 50px;
+}
+
+.Precaucion img{
+    object-fit: cover;
+    width: 500px;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 1px;
+    right: 20px;
+}
+
+
+
+article{
+    margin-top: 20px;
+    position: relative;
+    max-width: 550px;
+    margin-left: 50px;
+    transition: all .3s ease;
+    min-width: 530px;
+}
+
+article img:first-child{
+    box-shadow: 0 60px 60px
+    -60px rgba(0, 30, 255, 0.5);
+    border-radius: 6px;
+    object-fit: cover;
+    width: 100%;
+}
+
+article img:last-child{
+    position: absolute;
+    width: 200px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: .3s ease;
+    opacity: 0;
+    max-width: 550px;
+}
+
+article:hover{
+    transform: 
+    perspective(250px)
+    rotateX(1deg)
+    translateY(-5%)
+    translateZ(0);
+}
+article:hover::before{
+    opacity: 1;
+}
+
+article:hover img:last-child{
+    opacity: 1;
+    transform: translateY(5%);
+}
+/*Navegador*/
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:wght@300;400;500;700&display=swap");
+
+.contenedorPadre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+button{
+    font-family: "Rubik", sans-serif;
+    background-color: transparent;
+    border: 1px solid white;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    height: 50px;
+    transition: 0.5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.container{
+    position: relative;
+    width: 1200px;
+    height: 720px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #767676;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #ffff;
+}
+
+.container .content{
+    width: 100%;
+    display: flex;
+}
+
+.container .introduce{
+    position: relative;
+    width: 40%;
+    height: 100%;
+    z-index: 20;
+}
+
+.introduce .wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    padding: 0 25px 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+
+.introduce .wrapper span {
+    overflow: hidden;
+}
+
+.introduce .wrapper span > * {
+    transition: 0.5s ease;
+    opacity: 0;
+    transform: translateY(300px);
+    transition-delay: calc((3 - var(--idx)) * 0.1s);
+}
+
+.introduce .wrapper.active {
+    pointer-events: all;
+}
+
+.introduce .wrapper.active span  > * {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--idx) * 0.1s);
+}
+
+.introduce:not(.place){
+    font-family: "Rubik", sans-serif;
+}
+
+.introduce .country{
+    font-size: 1.5rem;
+    font-weight: 400px;
+}
+
+.introduce .place {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 4.4rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.introduce .describe{
+    width: 300px;
+    height: 200px;
+    font-size: 1rem;
+    margin-top: 8px;
+    font-weight: 300;
+    overflow: auto;
+}
+
+.introduce .discover-button{
+    width: 250px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.content .thumbnail-list {
+    position: relative;
+    height: 300px;
+    flex: 1;
+}
+
+.thumbnail-list .wrapper{
+    position: relative;
+    z-index: 10;
+    height: 300px;
+
+}
+
+.thumbnail-list .wrapper .thumbnail{
+    position: absolute;
+    height: 300px;
+    width: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.75s cubic-bezier(0.6, 0.1, 0.3, 1);
+    transform: translateX(calc(var(--idx) * 230px));
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.thumbnail-list .wrapper .thumbnail.zoom {
+    width: 1200px;
+    height: 720px;
+    transform: translate(-512px, -270px);
+    filter: brightness(40%);
+    box-shadow: none;
+}
+
+.thumbnail img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .navigation{
+    margin-left: 40%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 50px 50px 50px 0;
+    z-index: 20;
+}
+
+.navigation .next-button {
+    width: 100px;
+    border-radius: 50px;
+}
+
+.navigation .line{
+    flex: 1;
+    height: 2px;
+    background-color: #fff;
+}
+
+.navigation .ordinal-number{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.ordinal-number h2{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1;
+
+    position: absolute;
+    transform: translateY(200%);
+    transition: 0.5s ease;
+}
+
+.ordinal-number h2.active{
+    transform: unset;
+}
+
+
+
+
+
+.contacto{
+    color: #fff;
+    padding: 5px 0 20px 0;
+    background-color: rgb(0, 0, 32);
+}
+.contacto .Contactanos{
+    max-width: 1100px;
+    margin: auto;
+}
+
+.contacto form{
+    display: grid;
+    grid-column: 1 / 3;
+}
+
+.ConT{
+    font-size: 48px;
+    text-align: center;
+    padding: 20px 0;  
+}
+
+.con{
+    font-size: 30px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgb(249, 161, 161);
+    margin-left: 50px;
+}
+
+.info{
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: #fff;
+    margin-left: 45px;
+}
+
+#youtube,
+#twitter,
+#facebook,
+#github{
+    text-align: center;
+    color:#fff;
+    font-size: 1em;
+    background-color: #18191f;
+    box-shadow: 2px 2px 2px #000000, 10px 1px 12px #000000,
+    2px 2px 10px #000000, 2px 2px 3px #000000, inset 2px 2px 10px #000000,
+    inset 2px 2px 10px #000000,
+    inset 2px 2px 10px #000000;
+    border-radius: 29px;
+    padding: 11px 19px;
+    margin: 20px 10px;
+    animation: animate1 3s linear infinite;
+    text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
+}
+
+#twitter{
+    animation-delay:0.3s ;
+}
+
+#facebook{
+    animation-delay: 0.7s;
+}
+
+#facebook{
+    animation-delay: 0.2s;
+}
+
+@keyframes animate1{
+    from {filter: hue-rotate(0deg);}
+    to{
+        filter: hue-rotate(360deg);
+    }
+}
+h4{
+    background-image: url("../recursos/img/paris.jpeg");
+    background-position: center;
+    background-size: 20rem;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color:transparent;
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
